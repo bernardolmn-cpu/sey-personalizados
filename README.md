@@ -30,6 +30,14 @@ npm run preview
 npm audit
 ```
 
+## Publicar no GitHub Pages
+
+O workflow `.github/workflows/deploy.yml` compila e publica o site no GitHub Pages quando há um push para `main` ou `master`. No repositório, abra **Settings → Pages** e selecione **GitHub Actions** como origem da publicação. A URL ficará disponível no workflow concluído e em **Settings → Pages**.
+
+O caminho base é configurado automaticamente para páginas de repositório (`https://<usuário>.github.io/<repositório>/`) e para páginas de usuário/organização (`https://<usuário>.github.io/`). As rotas internas também funcionam ao atualizar a página.
+
+Para habilitar dados e login no site publicado, configure `VITE_SUPABASE_URL` e `VITE_SUPABASE_ANON_KEY` como **Actions variables** do repositório. Não adicione chaves privadas. No Supabase, atualize **Authentication → URL Configuration** para incluir o domínio publicado como Site URL e seus redirecionamentos permitidos. O checkout continua desativado até sua configuração segura.
+
 ## Configurar o Supabase
 
 1. Crie um projeto Supabase e copie `.env.example` para `.env.local`.
